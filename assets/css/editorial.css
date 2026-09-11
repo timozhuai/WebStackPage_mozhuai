@@ -1,0 +1,594 @@
+/* ==========================================================================
+   Editorial — 编辑杂志风
+   Monochrome, serif display, hairline rules, generous whitespace.
+   Loaded last so it overrides Bootstrap 3 + Xenon defaults.
+   ========================================================================== */
+
+:root {
+    --cream: #F9F8F6;
+    --ink: #1C1C1C;
+    --ink-80: rgba(28, 28, 28, 0.8);
+    --ink-60: rgba(28, 28, 28, 0.6);
+    --ink-40: rgba(28, 28, 28, 0.4);
+    --ink-20: rgba(28, 28, 28, 0.2);
+    --ink-10: rgba(28, 28, 28, 0.1);
+    --serif: Georgia, "Times New Roman", "Songti SC", "STSong", "SimSun", "Noto Serif SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body,
+.page-body,
+.page-container,
+.page-container .main-content,
+.boxed-container .page-container .main-content {
+    background-color: var(--cream) !important;
+    color: var(--ink);
+    font-family: var(--sans);
+}
+
+body * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.text-gray {
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--ink);
+}
+
+a {
+    color: var(--ink);
+}
+
+p {
+    line-height: 1.75;
+}
+
+/* Sharp corners only */
+.box2,
+.panel,
+.panel-default,
+.navbar,
+.dropdown-menu,
+.btn,
+.label,
+.tooltip-inner,
+.popover,
+.modal-content,
+.alert,
+.thumbnail,
+.form-control,
+.input-group-addon,
+.main-footer,
+.img-circle,
+.xe-user-img img,
+.sidebar-menu .logo-env .logo img {
+    border-radius: 0 !important;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+    outline: 1px solid var(--ink);
+    outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar — editorial index column
+   -------------------------------------------------------------------------- */
+
+.sidebar-menu,
+.sidebar-menu-inner {
+    background-color: var(--cream) !important;
+}
+
+.sidebar-menu {
+    border-right: 1px solid var(--ink-10);
+}
+
+.sidebar-menu .logo-env {
+    padding: 34px 24px 30px;
+    border-bottom: 1px solid var(--ink-10);
+}
+
+.sidebar-menu .logo-env .logo img {
+    display: none;
+}
+
+.sidebar-menu .logo-env .logo {
+    display: block;
+    line-height: 1;
+    font-family: var(--serif);
+    font-size: 18px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+
+.sidebar-menu .logo-env .logo:before {
+    content: "WebStack";
+}
+
+.sidebar-menu .main-menu {
+    padding: 18px 0;
+}
+
+.sidebar-menu .main-menu a {
+    color: var(--ink-60) !important;
+    background: transparent !important;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+.sidebar-menu .main-menu a:hover {
+    color: var(--ink) !important;
+    background-color: rgba(28, 28, 28, 0.03) !important;
+}
+
+.sidebar-menu .main-menu a > i {
+    color: var(--ink-40) !important;
+}
+
+.sidebar-menu .main-menu li.active > a {
+    color: var(--ink) !important;
+    background-color: transparent !important;
+}
+
+.sidebar-menu .main-menu > li > a > .title {
+    font-family: var(--serif);
+    font-size: 17px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+}
+
+.sidebar-menu .main-menu ul li a .title {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.sidebar-menu .main-menu li.has-sub > a:before {
+    content: none;
+}
+
+.sidebar-menu .main-menu ul {
+    border-color: var(--ink-10) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Top toolbar
+   -------------------------------------------------------------------------- */
+
+.navbar.user-info-navbar {
+    background-color: rgba(249, 248, 246, 0.92) !important;
+    border: none;
+    border-bottom: 1px solid var(--ink-10);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+.navbar.user-info-navbar .user-info-menu > li > a {
+    color: var(--ink-60) !important;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.5s ease;
+}
+
+.navbar.user-info-navbar .user-info-menu > li > a:hover {
+    color: var(--ink) !important;
+}
+
+.navbar.user-info-navbar .user-info-menu > li.hover-line:before {
+    display: none;
+}
+
+.navbar.user-info-navbar .user-info-menu > li > a i {
+    color: var(--ink-40);
+}
+
+.dropdown-menu {
+    background-color: var(--cream) !important;
+    border: 1px solid var(--ink-10);
+}
+
+.dropdown-menu > li > a {
+    color: var(--ink-60);
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li.active > a {
+    background-color: rgba(28, 28, 28, 0.04) !important;
+    color: var(--ink) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Masthead
+   -------------------------------------------------------------------------- */
+
+.editorial-masthead {
+    padding: 80px 0 56px;
+    border-bottom: 1px solid var(--ink-10);
+    margin-bottom: 8px;
+}
+
+.editorial-eyebrow {
+    margin: 0 0 26px;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-40);
+}
+
+.editorial-title {
+    margin: 0 0 28px;
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(44px, 7vw, 104px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+}
+
+.editorial-sub {
+    margin: 0;
+    max-width: 32rem;
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.8;
+    font-style: italic;
+    color: var(--ink-60);
+}
+
+/* --------------------------------------------------------------------------
+   Section headings
+   -------------------------------------------------------------------------- */
+
+.main-content h4.text-gray {
+    position: relative;
+    margin: 76px 0 40px;
+    padding: 0 0 18px;
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink-10);
+}
+
+.main-content h4.text-gray i {
+    color: var(--ink-40) !important;
+    font-size: 18px;
+    margin-right: 12px !important;
+    vertical-align: middle;
+}
+
+/* --------------------------------------------------------------------------
+   Link cards
+   -------------------------------------------------------------------------- */
+
+.box2.xe-widget {
+    position: relative;
+    height: auto !important;
+    min-height: 96px;
+    margin: 0 !important;
+    padding: 22px 6px;
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid var(--ink-10) !important;
+    cursor: pointer;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.box2.xe-widget:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: rgba(28, 28, 28, 0.02) !important;
+    border-bottom-color: var(--ink-40) !important;
+}
+
+.xe-comment-entry {
+    display: flex !important;
+    align-items: center;
+    gap: 16px;
+}
+
+.xe-comment-entry img {
+    float: none !important;
+    flex: 0 0 auto;
+    width: 40px;
+    height: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    filter: grayscale(1);
+    opacity: 0.9;
+    transition: filter 0.6s ease, opacity 0.6s ease;
+}
+
+.box2.xe-widget:hover .xe-comment-entry img {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.xe-comment {
+    position: static !important;
+    top: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+    min-width: 0;
+}
+
+.xe-comment p {
+    margin: 0 24px 0 0 !important;
+}
+
+.xe-user-name {
+    position: relative;
+    display: inline-block;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.xe-user-name strong {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    transition: font-style 0.5s ease;
+}
+
+.box2.xe-widget:hover .xe-user-name strong {
+    font-style: italic;
+}
+
+.xe-user-name::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.5s ease;
+}
+
+.box2.xe-widget:hover .xe-user-name::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+}
+
+.box2.xe-widget::after {
+    content: "\2192";
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1;
+    color: var(--ink);
+    opacity: 0;
+    transform: translateY(-50%) translateX(-8px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+}
+
+.box2.xe-widget:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+.overflowClip_2 {
+    margin-top: 6px !important;
+    font-family: var(--sans);
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--ink-60);
+}
+
+.label {
+    font-family: var(--sans);
+    font-weight: 400;
+}
+
+.label.label-info,
+.label.label-pink,
+.label.label-primary,
+.label.label-default {
+    background-color: var(--ink) !important;
+    color: var(--cream) !important;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.label:empty {
+    display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Two-column archive on tablet and up
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+    .main-content .row > .col-sm-3 {
+        width: 50% !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Tooltips
+   -------------------------------------------------------------------------- */
+
+.tooltip-inner {
+    background-color: var(--ink) !important;
+    color: var(--cream) !important;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+}
+
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: var(--ink) !important;
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: var(--ink) !important;
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: var(--ink) !important;
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: var(--ink) !important;
+}
+
+/* --------------------------------------------------------------------------
+   About page
+   -------------------------------------------------------------------------- */
+
+.panel.panel-default {
+    background-color: transparent !important;
+    border: 1px solid var(--ink-10);
+}
+
+.panel.panel-default > .panel-body {
+    padding: 34px 40px 40px;
+}
+
+.panel h4.text-gray {
+    margin-top: 56px;
+}
+
+blockquote {
+    margin: 0 0 32px;
+    padding: 0;
+    border: 0 none;
+    font-family: var(--serif);
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.9;
+    color: var(--ink-80);
+}
+
+blockquote p {
+    font-family: var(--serif);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.main-footer {
+    background-color: transparent !important;
+    border: none;
+    border-top: 1px solid var(--ink-10);
+    color: var(--ink-60);
+}
+
+.main-footer .footer-text {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-40);
+}
+
+.main-footer .footer-text a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.main-footer .footer-text a:hover {
+    text-decoration: underline;
+}
+
+.main-footer .go-up a {
+    color: var(--ink-40);
+}
+
+/* --------------------------------------------------------------------------
+   404
+   -------------------------------------------------------------------------- */
+
+#about h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(72px, 16vw, 160px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin: 0 0 32px;
+}
+
+#about p {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink-60);
+}
+
+#about a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+#about a:hover {
+    text-decoration: underline;
+}
+
+#about,
+#about .copyright {
+    background-color: transparent !important;
+}
+
+#about.bounce-in,
+.animated {
+    animation: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Motion preferences
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
