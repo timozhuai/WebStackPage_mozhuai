@@ -1,0 +1,8 @@
+# robots.txt — https://dh.mozhuai.site/
+# WebStack 设计师网址导航
+
+User-agent: *
+Allow: /
+
+# 站点地图（提交给搜索引擎收录）
+Sitemap: https://dh.mozhuai.site/sitemap.xml

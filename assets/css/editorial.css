@@ -266,6 +266,8 @@ input:focus-visible,
    Section headings
    -------------------------------------------------------------------------- */
 
+.main-content h1.text-gray,
+.main-content h2.text-gray,
 .main-content h4.text-gray {
     position: relative;
     margin: 76px 0 40px;
@@ -279,6 +281,8 @@ input:focus-visible,
     border-bottom: 1px solid var(--ink-10);
 }
 
+.main-content h1.text-gray i,
+.main-content h2.text-gray i,
 .main-content h4.text-gray i {
     color: var(--ink-40) !important;
     font-size: 18px;
@@ -483,6 +487,8 @@ input:focus-visible,
     padding: 34px 40px 40px;
 }
 
+.panel h1.text-gray,
+.panel h2.text-gray,
 .panel h4.text-gray {
     margin-top: 56px;
 }
