@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 注意：本站在托管平台启用净 URL（.html 会被 308 跳转），
+     因此 sitemap / canonical / hreflang 一律使用无跳转的最终地址。 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
@@ -8,39 +10,39 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dh.mozhuai.site/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dh.mozhuai.site/cn/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dh.mozhuai.site/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dh.mozhuai.site/cn/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dh.mozhuai.site/en/"/>
   </url>
 
   <url>
-    <loc>https://dh.mozhuai.site/cn/index.html</loc>
+    <loc>https://dh.mozhuai.site/cn/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dh.mozhuai.site/cn/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dh.mozhuai.site/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dh.mozhuai.site/cn/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dh.mozhuai.site/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dh.mozhuai.site/"/>
   </url>
 
   <url>
-    <loc>https://dh.mozhuai.site/en/index.html</loc>
+    <loc>https://dh.mozhuai.site/en/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dh.mozhuai.site/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dh.mozhuai.site/cn/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dh.mozhuai.site/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://dh.mozhuai.site/cn/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dh.mozhuai.site/"/>
   </url>
 
   <url>
-    <loc>https://dh.mozhuai.site/cn/about.html</loc>
+    <loc>https://dh.mozhuai.site/cn/about</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <url>
-    <loc>https://dh.mozhuai.site/en/about.html</loc>
+    <loc>https://dh.mozhuai.site/en/about</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
