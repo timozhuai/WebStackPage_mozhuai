@@ -1,0 +1,56 @@
+#!/bin/sh
+# ---------------------------------------------------------------
+# 提交前自动构建站点
+# ---------------------------------------------------------------
+# 为什么需要它：文章源是 Obsidian 库（articles/src/*.md），Obsidian Git 插件
+# 只会自动 commit + push，不会生成文章页。这个钩子挂在提交前，保证每次提交
+# 都带上重新生成的 articles/*.html、articles/index.html、rss.xml、sitemap.xml、
+# _redirects，所以「推送」就等于「上线」，不需要手动跑构建。
+#
+# 启用方式（克隆仓库后执行一次）：
+#     git config core.hooksPath tools/git-hooks
+#
+# 如需指定 Python：设置环境变量 ARTICLE_BUILD_PYTHON 指向解释器。
+# ---------------------------------------------------------------
+
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || exit 0
+cd "$ROOT" || exit 0
+
+find_python() {
+    if [ -n "${ARTICLE_BUILD_PYTHON:-}" ] && [ -x "$ARTICLE_BUILD_PYTHON" ]; then
+        printf '%s' "$ARTICLE_BUILD_PYTHON"; return 0
+    fi
+    for candidate in /c/Users/pyc/.workbuddy/binaries/python/envs/default/Scripts/python.exe \
+                     python python3 py; do
+        if command -v "$candidate" >/dev/null 2>&1; then
+            printf '%s' "$candidate"; return 0
+        fi
+    done
+    return 1
+}
+
+PY="$(find_python)" || {
+    echo '[pre-commit] 未找到 python，已跳过站点构建（提交继续，但文章页不会更新）' >&2
+    exit 0
+}
+
+if ! "$PY" -c 'import markdown' >/dev/null 2>&1; then
+    echo "[pre-commit] $PY 缺少 markdown 库，已跳过站点构建" >&2
+    echo "[pre-commit] 安装：$PY -m pip install markdown" >&2
+    exit 0
+fi
+
+echo '[pre-commit] 正在构建站点（导航 + 文章）...'
+if ! "$PY" tools/build.py; then
+    echo '[pre-commit] 构建失败，已中止提交。请修复 articles/src/ 下的文章后重试。' >&2
+    exit 1
+fi
+
+for path in articles sitemap.xml _redirects index.html cn/index.html en/index.html assets/images/articles; do
+    if [ -e "$path" ]; then
+        git add -A -- "$path"
+    fi
+done
+
+echo '[pre-commit] 构建产物已加入本次提交。'
+exit 0
