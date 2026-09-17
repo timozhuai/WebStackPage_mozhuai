@@ -1,5 +1,10 @@
 # 本文件由 tools/build.py 生成，请勿手改。
-# 目的：源码、工具与数据目录不对公网提供（Pages 的 _redirects 不支持 404，故用 301）。
+# 目的：源码、工具与数据目录不对公网提供（Pages 的 _redirects 不支持 404，故用 301）；
+#       /cn/* 旧中文路径已并入根路径，301 兼容历史外链与搜索引擎收录。
+
+# 旧中文路径 -> 根路径（中文已成为默认首页）
+/cn/                                                /                                    301
+/cn/*                                               /:splat                              301
 
 /articles/src/2026-09-18-free-stock-photos.md        /articles/free-stock-photos              301
 /articles/src/free-commercial-fonts.md               /articles/free-commercial-fonts          301

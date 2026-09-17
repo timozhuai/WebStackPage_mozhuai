@@ -9,8 +9,9 @@ WebStack 设计师网址导航 - 静态站构建脚本
 目录约定：
   data/sites.json          导航唯一数据源（分类 + 站点 + 侧栏结构）
   articles/src/            文章源 = Obsidian 库（*.md + attachments/）
-  cn/index.html, en/index.html   导航页（含 BUILD 标记区，脚本重建标记区内容）
-  index.html               首页落地页（分类列表区由脚本重建）
+  index.html              中文导航主页（默认语言；含 BUILD 标记区，脚本重建标记区内容）
+  en/index.html           英文版导航页（含 BUILD 标记区）
+  about.html, en/about.html 关于页（纯静态，无构建标记）
   articles/index.html      文章列表页（脚本生成）
   articles/<slug>.html     文章页（脚本生成）
   articles/rss.xml         订阅源（脚本生成）
@@ -169,19 +170,6 @@ def render_sidebar(sidebar, cats_by_id, lang):
                 '                            <span class="label label-Primary pull-right hidden-collapsed">♥︎</span>\n'
                 '                        </a>\n'
                 '                    </li>')
-    return '\n'.join(parts)
-
-def render_home_catlist(sidebar, cats_by_id):
-    """首页落地页的分类索引（排除推广位），锚点指向中文版。"""
-    parts = []
-    for item in sidebar:
-        cats = ([cats_by_id[item['category']]] if item['kind'] == 'link'
-                else [cats_by_id[ch['category']] for ch in item.get('children', [])])
-        for cat in cats:
-            if cat['id'] == '推广':
-                continue
-            parts.append('                        <li><a href="./cn/#%s">%s</a></li>'
-                         % (quote(cat_anchor(cat, 'cn'), safe=''), html.escape(cat_name(cat, 'cn'))))
     return '\n'.join(parts)
 
 # ---------------------------------------------------------------------------
@@ -522,9 +510,9 @@ PAGE_HEAD = '''<!DOCTYPE html>
 PAGE_HEADER = '''<body>
     <header class="art-head">
         <div class="wrap">
-            <a class="brand" href="../cn/">设计师网址导航</a>
+            <a class="brand" href="../">设计师网址导航</a>
             <nav class="art-nav">
-                <a href="../cn/">导航</a>
+                <a href="../">导航</a>
                 <a href="./" aria-current="page">设计文章</a>
             </nav>
         </div>
@@ -532,7 +520,7 @@ PAGE_HEADER = '''<body>
 
 PAGE_FOOTER = '''    <footer class="art-foot">
         <div class="wrap">
-            <p>&copy; 2017-2026 <a href="../cn/about"><strong>WebStack</strong></a> &middot; 设计资源观察笔记</p>
+            <p>&copy; 2017-2026 <a href="../about"><strong>WebStack</strong></a> &middot; 设计资源观察笔记</p>
         </div>
     </footer>
 </body>
@@ -595,7 +583,7 @@ def article_page_html(a):
 %s
             </div>
 %s        </article>
-        <p class="art-back"><a href="./">&larr; 返回文章列表</a> &middot; <a href="../cn/">去逛逛导航 &rarr;</a></p>
+        <p class="art-back"><a href="./">&larr; 返回文章列表</a> &middot; <a href="../">去逛逛导航 &rarr;</a></p>
     </main>
 ''' % (a['date'], date_cn, html.escape(a['title']), html.escape(a['description']), body,
        ('            <p class="art-tags">\n' + tags + '            </p>\n') if tags else '')
@@ -642,7 +630,7 @@ def articles_list_html(articles):
         <div class="art-list">
 %s
         </div>
-        <p class="art-back"><a href="./rss.xml">RSS 订阅</a> &middot; <a href="../cn/">去逛逛导航 &rarr;</a></p>
+        <p class="art-back"><a href="./rss.xml">RSS 订阅</a> &middot; <a href="../">去逛逛导航 &rarr;</a></p>
     </main>
 ''' % list_body + PAGE_FOOTER)
 
@@ -693,11 +681,11 @@ def build_sitemap(articles):
         s += '  </url>'
         urls.append(s)
 
-    alts_full = [('x-default', BASE + '/'), ('zh-CN', BASE + '/cn/'), ('en', BASE + '/en/')]
-    entry(BASE + '/', '2026-09-14', 'daily', '1.0', alts_full)
-    entry(BASE + '/cn/', '2026-09-14', 'daily', '0.9', alts_full)
+    alts_full = [('x-default', BASE + '/'), ('zh-CN', BASE + '/'), ('en', BASE + '/en/')]
+    entry(BASE + '/', '2026-09-18', 'daily', '1.0', alts_full)
     entry(BASE + '/en/', '2026-09-14', 'daily', '0.8', alts_full)
-    entry(BASE + '/cn/about', '2026-09-14', 'monthly', '0.4')
+    entry(BASE + '/about', '2026-09-18', 'monthly', '0.4',
+          [('zh-CN', BASE + '/about'), ('en', BASE + '/en/about'), ('x-default', BASE + '/about')])
     entry(BASE + '/en/about', '2026-09-14', 'monthly', '0.3')
     entry(BASE + '/articles/', latest, 'daily', '0.7')
     for a in articles:
@@ -721,7 +709,12 @@ def build_redirects(articles):
     """
     lines = [
         '# 本文件由 tools/build.py 生成，请勿手改。',
-        '# 目的：源码、工具与数据目录不对公网提供（Pages 的 _redirects 不支持 404，故用 301）。',
+        '# 目的：源码、工具与数据目录不对公网提供（Pages 的 _redirects 不支持 404，故用 301）；',
+        '#       /cn/* 旧中文路径已并入根路径，301 兼容历史外链与搜索引擎收录。',
+        '',
+        '# 旧中文路径 -> 根路径（中文已成为默认首页）',
+        '/cn/                                                /                                    301',
+        '/cn/*                                               /:splat                              301',
         '',
     ]
     for a in articles:
@@ -755,8 +748,8 @@ def main():
             if r not in cats_by_id:
                 raise SystemExit('sidebar 引用了不存在的分类：%s' % r)
 
-    # ---- 导航页 cn / en ----
-    for lang, rel in (('cn', os.path.join('cn', 'index.html')), ('en', os.path.join('en', 'index.html'))):
+    # ---- 导航页：根路径（中文默认）+ en ----
+    for lang, rel in (('cn', 'index.html'), ('en', os.path.join('en', 'index.html'))):
         path = os.path.join(ROOT, rel)
         text = open(path, encoding='utf-8').read()
         text = replace_block(text, '<!-- BUILD:SIDEBAR:BEGIN -->', '<!-- BUILD:SIDEBAR:END -->',
@@ -765,17 +758,6 @@ def main():
                              render_categories(categories, lang))
         open(path, 'w', encoding='utf-8', newline='\n').write(text)
         print('built %s' % rel)
-
-    # ---- 首页分类索引与数量 ----
-    home_path = os.path.join(ROOT, 'index.html')
-    text = open(home_path, encoding='utf-8').read()
-    n_cats = len([c for c in categories if c['id'] != '推广'])
-    text = replace_block(text, '<!-- BUILD:CATLIST:BEGIN -->', '<!-- BUILD:CATLIST:END -->',
-                         render_home_catlist(sidebar, cats_by_id))
-    text = re.sub(r'目前收录 \d+ 个分类', '目前收录 %d 个分类' % n_cats, text)
-    text = re.sub(r'含全部 \d+ 个分类', '含全部 %d 个分类' % n_cats, text)
-    open(home_path, 'w', encoding='utf-8', newline='\n').write(text)
-    print('built index.html (categories: %d)' % n_cats)
 
     # ---- 文章（源 = Obsidian 库） ----
     os.makedirs(VAULT_DIR, exist_ok=True)
