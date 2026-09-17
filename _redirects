@@ -1,6 +1,7 @@
 # 本文件由 tools/build.py 生成，请勿手改。
 # 目的：源码、工具与数据目录不对公网提供（Pages 的 _redirects 不支持 404，故用 301）。
 
+/articles/src/2026-09-18-free-stock-photos.md        /articles/free-stock-photos              301
 /articles/src/free-commercial-fonts.md               /articles/free-commercial-fonts          301
 /articles/src/2026-09-15-color-tools-note.md         /articles/color-tools-note               301
 
