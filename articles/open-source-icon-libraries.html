@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>界面图标怎么选？6 套开源图标库的规格、场景与授权 - 设计师网址导航</title>
+    <meta name="description" content="Heroicons、Lucide、Phosphor、Tabler、Remix Icon、Material Symbols 各自的规格与适用场景，外加一套五分钟授权核对清单，避免交付前返工。">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dh.mozhuai.site/articles/open-source-icon-libraries">
+    <link rel="shortcut icon" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dh.mozhuai.site/articles/open-source-icon-libraries">
+    <meta property="og:title" content="界面图标怎么选？6 套开源图标库的规格、场景与授权">
+    <meta property="og:description" content="Heroicons、Lucide、Phosphor、Tabler、Remix Icon、Material Symbols 各自的规格与适用场景，外加一套五分钟授权核对清单，避免交付前返工。">
+    <meta property="og:site_name" content="WebStack 设计师网址导航">
+    <meta property="article:published_time" content="2026-09-19">
+    <meta name="keywords" content="图标库，开源图标，SVG图标，图标授权，Heroicons，Lucide">
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://dh.mozhuai.site/articles/open-source-icon-libraries#article",
+      "headline": "界面图标怎么选？6 套开源图标库的规格、场景与授权",
+      "description": "Heroicons、Lucide、Phosphor、Tabler、Remix Icon、Material Symbols 各自的规格与适用场景，外加一套五分钟授权核对清单，避免交付前返工。",
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://dh.mozhuai.site/articles/open-source-icon-libraries"
+      },
+      "url": "https://dh.mozhuai.site/articles/open-source-icon-libraries",
+      "inLanguage": "zh-CN",
+      "author": {
+        "@type": "Organization",
+        "name": "WebStack 设计师网址导航",
+        "url": "https://dh.mozhuai.site/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "WebStack 设计师网址导航",
+        "url": "https://dh.mozhuai.site/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://dh.mozhuai.site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "设计文章",
+          "item": "https://dh.mozhuai.site/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "界面图标怎么选？6 套开源图标库的规格、场景与授权",
+          "item": "https://dh.mozhuai.site/articles/open-source-icon-libraries"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <header class="art-head">
+        <div class="wrap">
+            <a class="brand" href="../">设计师网址导航</a>
+            <nav class="art-nav">
+                <a href="../">导航</a>
+                <a href="./" aria-current="page">设计文章</a>
+            </nav>
+        </div>
+    </header>
+    <main class="art-main">
+        <article>
+            <p class="art-meta"><time datetime="2026-09-19">2026 年 9 月 19 日</time></p>
+            <h1>界面图标怎么选？6 套开源图标库的规格、场景与授权</h1>
+            <p class="art-lead">Heroicons、Lucide、Phosphor、Tabler、Remix Icon、Material Symbols 各自的规格与适用场景，外加一套五分钟授权核对清单，避免交付前返工。</p>
+            <div class="art-body">
+    <p>图标是界面里最容易被忽略、又最容易做坏的一环。项目开始时常常是「随手下一个 PNG」，做到后期就变成三种线条粗细、四种圆角并存，导出时还糊掉。这篇只讲清楚一件事：主流开源 SVG 图标库各自适合什么场景，以及商用前怎么确认授权——文中的规格与授权信息都来自各库官网与仓库当前状态，可以直接对照核实。</p>
+    <h2>先定规矩：别再用位图和字体图标</h2>
+    <p>位图图标（PNG、雪碧图）的硬伤是<strong>不能换色、不能无损放大</strong>；字体图标则往往为了用几个图标而全量加载几十上百 KB 的字体文件，且难以按需裁剪。目前主流做法是 <strong>SVG 内联或组件化引入</strong>：体积可控、颜色跟随 <code>currentColor</code>、任意尺寸都清晰。</p>
+    <p>引入方式通常有三种，选哪种取决于项目形态：</p>
+    <ul>
+    <li><strong>直接复制 SVG 源码</strong>：heroicons.com、lucide.dev 都提供在线复制，适合小项目或原型；</li>
+    <li><strong>安装 npm 包 / 框架组件</strong>：Heroicons 官方提供 React 与 Vue 包，其余主流库也都有社区或官方封装；</li>
+    <li><strong>通过统一 API 按需取用</strong>：Iconify 提供跨图标集的统一命名与 CDN 调用，适合图标来源比较杂的团队。</li>
+    </ul>
+    <h2>六套值得长期用的图标库</h2>
+    <ul>
+    <li><strong>Heroicons</strong>（heroicons.com）：Tailwind CSS 团队出品，<strong>MIT 授权</strong>。规格最克制——24px 的 outline 与 solid 两套，外加 20px（mini）、16px（micro）两类 solid，正好对上前端常用的 <code>size-6 / size-5 / size-4</code> 三档尺寸。适合后台、SaaS 这类需要「干净、不抢戏」的界面。</li>
+    <li><strong>Lucide</strong>（lucide.dev）：由 Feather 图标演化而来，<strong>ISC 授权</strong>，官网当前标注 1853 个图标，统一的 24 网格、描边宽度可调。风格轻盈，前端生态支持最全，做中后台和开发者产品几乎可以闭眼选。</li>
+    <li><strong>Phosphor</strong>（phosphoricons.com）：<strong>MIT 授权</strong>。它最有价值的特点是同一套图标提供<strong>多个字重</strong>（thin / light / regular / bold / fill / duotone）。需要区分默认态与选中态时，换一个字重就够了，不必引入第二套库。</li>
+    <li><strong>Tabler Icons</strong>（tabler.io/icons）：<strong>MIT 授权</strong>，官网当前标注 6184 个图标，覆盖面在以上几套之上。因为它是围绕后台模板生长的，商务、财务、系统类的「冷门概念」图标特别全（发票、钱包、各类图表符号等）。</li>
+    <li><strong>Remix Icon</strong>（remixicon.com）：国内设计师最熟的一套之一，line 与 fill 成对命名，中文场景适配度高。<strong>但要注意它的授权已在 2026 年 1 月更换为自有的 Remix Icon License v1.0</strong>：依旧免费商用、不强制署名，但明确禁止把图标本身做成图标包单独售卖。</li>
+    <li><strong>Material Symbols</strong>（fonts.google.com/icons）：Google 的系统级图标，<strong>Apache 2.0</strong>，变量字体支持字重、填充、光学尺寸等多个轴，适合 Android 与 Material 体系。若项目本身不是 Material 风格，混用会显得「味道不对」。</li>
+    </ul>
+    <blockquote>
+    <p><strong>技巧</strong>：数量以官网为准<br />
+    各库的图标总数持续增长，选型时以官网当前标注为准，本文数字仅作量级参考，不必当作硬指标。</p>
+    </blockquote>
+    <h2>找不到合意图标时：三个检索入口</h2>
+    <ul>
+    <li><strong>Iconify</strong>（iconify.design）：把大量开源图标集聚合成一个检索入口。按它的官方数据，当前收录 <strong>237 套图标集、37 万余个图标</strong>，一个搜索框就能横向比对不同风格。可以用统一命名（形如 <code>mdi:home</code>）在组件里直接调用，也能只导出需要的那几个 SVG。</li>
+    <li><strong>iconfont</strong>（iconfont.cn，阿里巴巴矢量图标库）：国内最大的图标社区，很多团队会自建项目图标库、导出字体包或 SVG。<strong>注意平台上的图标由不同作者上传，每个图标集的授权各不相同</strong>，商用前务必看清具体说明。</li>
+    <li><strong>Simple Icons</strong>（simpleicons.org）：专收品牌 LOGO（社交平台、开发工具、支付渠道等），图标文件采用 <strong>CC0 1.0</strong>。但<strong>品牌标识本身是各家公司的商标</strong>——用于「表示某个平台」通常没问题，用于暗示合作或背书就要格外谨慎。</li>
+    </ul>
+    <h2>授权核对清单：五分钟，省一场事故</h2>
+    <ol>
+    <li><strong>读 LICENSE 文件，不要凭印象</strong>。Remix Icon 就是最好的例子：授权会变，早年的宽松许可不等于今天依然宽松。</li>
+    <li><strong>分清「图标许可」与「品牌商标」</strong>：技术授权允许你使用这张图，不代表画面里的商标可以随便用。</li>
+    <li><strong>确认是否要求署名</strong>：Heroicons、Lucide、Phosphor、Tabler、Material Symbols 均属宽松许可，通常无需署名；采用自定义许可的库则要逐条读清。</li>
+    <li><strong>别把图标本身做成商品</strong>：几乎所有图标库都禁止把图标打包成图标包售卖，做「图标市场」类产品时要特别当心。</li>
+    </ol>
+    <blockquote>
+    <p><strong>技巧</strong>：交付前再核对一次<br />
+    授权条款随时可能更新，项目定版前建议花两分钟回到各库官网的 License 页面确认最新版本，并以官方说明为准。</p>
+    </blockquote>
+    <h2>落地流程：一个项目最多两套库</h2>
+    <p>界面「说不上哪里不对」的常见原因就是混用图标库——2px 描边和 1.5px 描边放在一起，视觉上就是歪的。建议<strong>一个项目最多保留两套库</strong>：一套描边风格承担功能图标，一套填充风格承担状态图标，并固定统一的网格与描边宽度。</p>
+    <p>工程侧还可以顺手做两步：导出的 SVG 先过一遍压缩工具 <a href="https://dh.mozhuai.site/#在线工具">SVGOMG</a>（本站「在线工具」分类也收录了它），再去掉无用的 <code>fill</code>、<code>stroke</code> 属性；图标站点入口则集中在<a href="https://dh.mozhuai.site/#图标素材">导航站的「图标素材」分类</a>，从那里进可以省掉记网址的负担。如果你还在处理字体授权问题，可以接着看 <a href="./free-commercial-fonts">免费商用字体清单</a>；素材选型的方法论，<a href="./free-stock-photos">免费商用图库怎么选</a> 里的思路同样适用。</p>
+            </div>
+            <p class="art-tags">
+            <span class="art-tag">素材资源</span>
+            <span class="art-tag">图标素材</span>
+            </p>
+        </article>
+        <p class="art-back"><a href="./">&larr; 返回文章列表</a> &middot; <a href="../">去逛逛导航 &rarr;</a></p>
+    </main>
+    <footer class="art-foot">
+        <div class="wrap">
+            <p>&copy; 2017-2026 <a href="../about"><strong>WebStack</strong></a> &middot; 设计资源观察笔记</p>
+        </div>
+    </footer>
+</body>
+</html>

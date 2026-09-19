@@ -6,6 +6,13 @@
     <description>设计工具评测、素材资源清单与灵感趋势的观察笔记。</description>
     <language>zh-CN</language>
     <item>
+      <title>界面图标怎么选？6 套开源图标库的规格、场景与授权</title>
+      <link>https://dh.mozhuai.site/articles/open-source-icon-libraries</link>
+      <guid isPermaLink="true">https://dh.mozhuai.site/articles/open-source-icon-libraries</guid>
+      <pubDate>2026-09-19T08:00:00+08:00</pubDate>
+      <description>Heroicons、Lucide、Phosphor、Tabler、Remix Icon、Material Symbols 各自的规格与适用场景，外加一套五分钟授权核对清单，避免交付前返工。</description>
+    </item>
+    <item>
       <title>免费商用图库怎么选？Unsplash、Pexels、Pixabay 的真实差别</title>
       <link>https://dh.mozhuai.site/articles/free-stock-photos</link>
       <guid isPermaLink="true">https://dh.mozhuai.site/articles/free-stock-photos</guid>
