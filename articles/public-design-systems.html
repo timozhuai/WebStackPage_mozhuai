@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公开设计系统清单：10 套官方规范的定位、授权与取用方式 - 设计师网址导航</title>
+    <meta name="description" content="从 Apple HIG、Material Design 到 IBM Carbon、GOV.UK、USWDS，整理 10 套公开设计系统的官方入口、适用场景与授权情况，并给出一套把规范落进团队日常评审的做法。">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dh.mozhuai.site/articles/public-design-systems">
+    <link rel="shortcut icon" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dh.mozhuai.site/articles/public-design-systems">
+    <meta property="og:title" content="公开设计系统清单：10 套官方规范的定位、授权与取用方式">
+    <meta property="og:description" content="从 Apple HIG、Material Design 到 IBM Carbon、GOV.UK、USWDS，整理 10 套公开设计系统的官方入口、适用场景与授权情况，并给出一套把规范落进团队日常评审的做法。">
+    <meta property="og:site_name" content="WebStack 设计师网址导航">
+    <meta property="article:published_time" content="2026-09-21">
+    <meta name="keywords" content="设计系统，design system，Material Design，Human Interface Guidelines，Carbon，Ant Design，GOV.UK Design System，USWDS，Primer，设计规范">
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://dh.mozhuai.site/articles/public-design-systems#article",
+      "headline": "公开设计系统清单：10 套官方规范的定位、授权与取用方式",
+      "description": "从 Apple HIG、Material Design 到 IBM Carbon、GOV.UK、USWDS，整理 10 套公开设计系统的官方入口、适用场景与授权情况，并给出一套把规范落进团队日常评审的做法。",
+      "datePublished": "2026-09-21",
+      "dateModified": "2026-09-21",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://dh.mozhuai.site/articles/public-design-systems"
+      },
+      "url": "https://dh.mozhuai.site/articles/public-design-systems",
+      "inLanguage": "zh-CN",
+      "author": {
+        "@type": "Organization",
+        "name": "WebStack 设计师网址导航",
+        "url": "https://dh.mozhuai.site/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "WebStack 设计师网址导航",
+        "url": "https://dh.mozhuai.site/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://dh.mozhuai.site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "设计文章",
+          "item": "https://dh.mozhuai.site/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "公开设计系统清单：10 套官方规范的定位、授权与取用方式",
+          "item": "https://dh.mozhuai.site/articles/public-design-systems"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <header class="art-head">
+        <div class="wrap">
+            <a class="brand" href="../">设计师网址导航</a>
+            <nav class="art-nav">
+                <a href="../">导航</a>
+                <a href="./" aria-current="page">设计文章</a>
+            </nav>
+        </div>
+    </header>
+    <main class="art-main">
+        <article>
+            <p class="art-meta"><time datetime="2026-09-21">2026 年 9 月 21 日</time></p>
+            <h1>公开设计系统清单：10 套官方规范的定位、授权与取用方式</h1>
+            <p class="art-lead">从 Apple HIG、Material Design 到 IBM Carbon、GOV.UK、USWDS，整理 10 套公开设计系统的官方入口、适用场景与授权情况，并给出一套把规范落进团队日常评审的做法。</p>
+            <div class="art-body">
+    <p>做界面时最省时间的做法，往往不是从零制定规范，而是找一套已经被大量真实用户用过的公开规范作参照：它替你回答过「按钮该多高」「报错文案该放哪」这类反复争论的问题。</p>
+    <p>但「公开」不等于「随便用」。这些规范里，有的只是文档，有的是连组件代码和设计令牌一起开源，授权范围差别很大。下面按使用场景分三类，列出 10 套确认仍在线、且有明确官方入口的设计系统。</p>
+    <h2>一、先分清三类「规范」，别拿错档</h2>
+    <ul>
+    <li><strong>平台型指南</strong>：Apple、Google 为自己的操作系统写的规范。它回答的是「在这套系统里怎么做才不违和」，通常<strong>不提供可直接商用的组件代码</strong>。</li>
+    <li><strong>开源设计系统</strong>：企业把自己产品的设计语言、组件库、设计令牌一起开源，授权写在仓库里，可以直接拿来改。</li>
+    <li><strong>索引与清单</strong>：别人整理好的设计系统目录。它<strong>不是规范本身</strong>，价值在于帮你快速找到更多来源。</li>
+    </ul>
+    <p>分清这三类能避免一个常见错误：把平台型指南当组件库用。它给的是原则、尺寸与交互逻辑，不是按钮的现成代码。</p>
+    <h2>二、平台型：Apple HIG 与 Material Design</h2>
+    <p><strong>Apple Human Interface Guidelines</strong>（<a href="https://developer.apple.com/design/human-interface-guidelines">developer.apple.com/design/human-interface-guidelines</a>）：覆盖 iOS、iPadOS、macOS、watchOS、tvOS 与 visionOS，按「组件 + 交互模式」组织，配套的设计资源与模板在 <a href="https://developer.apple.com/design/resources">developer.apple.com/design/resources</a>。它的价值不只是排版细节，而是解释「为什么在这个平台要这么做」。注意一点：<strong>Apple 的字体（SF 系列等）与官方设计资源有单独授权条款</strong>，做商用项目之前，以 Apple 官方说明为准。</p>
+    <p><strong>Material Design 3</strong>（<a href="https://m3.material.io/">m3.material.io</a>）：Google 的跨平台规范，M3 这一代把<strong>动态配色（dynamic color）</strong>、自适应布局和组件的状态设计讲得最细，每个组件页都同时给设计指引与交互说明。与之配套的官方图标资源 <strong>Material Symbols / Material Icons</strong> 放在 <a href="https://github.com/google/material-design-icons">github.com/google/material-design-icons</a>，以 <strong>Apache-2.0</strong> 释出——这是少数能放心直接商用的官方图标源。</p>
+    <h2>三、可复用的开源设计系统：六套</h2>
+    <p>这一类才是「能直接落进项目」的部分。下表里的代码授权，是写这篇文章时逐条到对应 GitHub 仓库核对的：</p>
+    <table>
+    <thead>
+    <tr>
+    <th>系统</th>
+    <th>官方入口</th>
+    <th>适合什么产品</th>
+    <th>代码授权</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>IBM Carbon</td>
+    <td><a href="https://carbondesignsystem.com/">carbondesignsystem.com</a></td>
+    <td>企业级后台、数据密集界面</td>
+    <td>Apache-2.0</td>
+    </tr>
+    <tr>
+    <td>Ant Design</td>
+    <td><a href="https://ant.design/">ant.design</a></td>
+    <td>中后台产品，官方文档提供简体中文版本</td>
+    <td>MIT</td>
+    </tr>
+    <tr>
+    <td>Adobe Spectrum</td>
+    <td><a href="https://spectrum.adobe.com/">spectrum.adobe.com</a></td>
+    <td>创意工具类产品，令牌体系分层细致</td>
+    <td>Apache-2.0（React Spectrum）</td>
+    </tr>
+    <tr>
+    <td>GitHub Primer</td>
+    <td><a href="https://primer.style/">primer.style</a></td>
+    <td>内容与代码平台，变量优先</td>
+    <td>MIT（primer/css）</td>
+    </tr>
+    <tr>
+    <td>Uber Base Web</td>
+    <td><a href="https://baseweb.design/">baseweb.design</a></td>
+    <td>需要高覆盖度组件的产品</td>
+    <td>MIT</td>
+    </tr>
+    <tr>
+    <td>Shopify Polaris</td>
+    <td><a href="https://polaris.shopify.com/">polaris.shopify.com</a></td>
+    <td>电商与商家后台</td>
+    <td>文档在线，React 实现仓库已归档</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>几点使用提醒：</p>
+    <ul>
+    <li><strong>表格里给的是代码授权</strong>。设计资源（Figma / Sketch 文件）、品牌图标、内置字体往往另有约定，落地前请以各仓库的 LICENSE 与官方说明为准。</li>
+    <li><strong>Carbon 值得单独看一眼</strong>。它把设计令牌按颜色、字体、间距、动效分层，组件文档里每个状态都配了使用场景，适合当成「后台系统怎么排信息」的模板。</li>
+    <li><strong>Polaris 这一条要留意时间</strong>。它的 React 实现仓库（Shopify/polaris-react-archive）已被官方标注为 Deprecated 并归档，文档站仍在正常维护。接入前先看官方文档给出的当前建议，<strong>不要直接照抄归档仓库里的旧代码</strong>。</li>
+    <li><strong>Base Web 与 Primer 都属于「克制型」</strong>：组件不多，但变量与主题机制清楚，适合想自建一层封装、又不想从零造轮子的团队。</li>
+    </ul>
+    <h2>四、公共服务场景的两套样板，以及怎么真正用起来</h2>
+    <p><strong>GOV.UK Design System</strong>（<a href="https://design-system.service.gov.uk/">design-system.service.gov.uk</a>）和 <strong>U.S. Web Design System</strong>（<a href="https://designsystem.digital.gov/">designsystem.digital.gov</a>）是另一类样板：服务对象是需要「所有人都能用明白」的公共事务页面，因此把可读性、容错和流程完整度放在很前面的位置。</p>
+    <ul>
+    <li>GOV.UK 的代码包 <code>govuk-frontend</code> 为 <strong>MIT</strong> 授权，它把<strong>文案写作规范</strong>和组件放在同一套系统里，做表单、多步流程与错误提示时参考价值很高。</li>
+    <li>USWDS 由美国 GSA 维护，其原创修改部分以 <strong>CC0</strong> 释出；但仓库的 <code>LICENSE.md</code> 明确写着「有一部分不属于公有领域」——内含字体适用 SIL OFL 1.1，部分图标适用 Apache-2.0。要用就照 <code>LICENSE.md</code> 逐项核对，别只看仓库首页那一个标签。</li>
+    </ul>
+    <p>规范收进收藏夹不难，难的是让它在团队里真正生效。可以试这套顺序：</p>
+    <ol>
+    <li><strong>只选一套作主参照</strong>，不要三套混着抄——最先崩的是间距与圆角。</li>
+    <li><strong>先偷令牌层</strong>：把颜色、字号、间距、圆角抽成变量，统一变量再谈组件。</li>
+    <li><strong>把规范里的 Do / Don't 摘成评审问题清单</strong>，每次评审照着问一遍。</li>
+    <li><strong>拿不准的交互，用两套不同来源的规范交叉验证</strong>；如果两边结论一致，基本可以放心采用。</li>
+    </ol>
+    <p>如果只是想把同类来源一次性收全，站内<a href="https://dh.mozhuai.site/#%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83">「设计规范」分类</a>里收录的 alexpate/awesome-design-systems 是一个长期维护的清单仓库，可以顺着它往外翻；想看看各家团队怎么讲自己的设计语言，可以逛<a href="https://dh.mozhuai.site/#UED%E5%9B%A2%E9%98%9F">「UED团队」</a>。规范之外，图标与素材的选择可以接着看 <a href="./open-source-icon-libraries">6 套开源图标库的规格与授权</a>，交稿前的检查项则整理在 <a href="./pre-launch-design-checklist">上线前的设计自检清单</a>。</p>
+            </div>
+            <p class="art-tags">
+            <span class="art-tag">设计规范</span>
+            <span class="art-tag">资源清单</span>
+            </p>
+        </article>
+        <p class="art-back"><a href="./">&larr; 返回文章列表</a> &middot; <a href="../">去逛逛导航 &rarr;</a></p>
+    </main>
+    <footer class="art-foot">
+        <div class="wrap">
+            <p>&copy; 2017-2026 <a href="../about"><strong>WebStack</strong></a> &middot; 设计资源观察笔记</p>
+        </div>
+    </footer>
+</body>
+</html>

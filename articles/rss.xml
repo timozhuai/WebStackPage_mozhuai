@@ -6,6 +6,13 @@
     <description>设计工具评测、素材资源清单与灵感趋势的观察笔记。</description>
     <language>zh-CN</language>
     <item>
+      <title>公开设计系统清单：10 套官方规范的定位、授权与取用方式</title>
+      <link>https://dh.mozhuai.site/articles/public-design-systems</link>
+      <guid isPermaLink="true">https://dh.mozhuai.site/articles/public-design-systems</guid>
+      <pubDate>2026-09-21T08:00:00+08:00</pubDate>
+      <description>从 Apple HIG、Material Design 到 IBM Carbon、GOV.UK、USWDS，整理 10 套公开设计系统的官方入口、适用场景与授权情况，并给出一套把规范落进团队日常评审的做法。</description>
+    </item>
+    <item>
       <title>上线前的设计自检：6 个工具 + 一份 30 分钟清单</title>
       <link>https://dh.mozhuai.site/articles/pre-launch-design-checklist</link>
       <guid isPermaLink="true">https://dh.mozhuai.site/articles/pre-launch-design-checklist</guid>
