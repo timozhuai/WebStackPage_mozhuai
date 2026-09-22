@@ -6,6 +6,7 @@
 /cn/                                                /                                    301
 /cn/*                                               /:splat                              301
 
+/articles/src/2026-09-22-design-inspiration-workflow.md /articles/design-inspiration-workflow    301
 /articles/src/2026-09-21-public-design-systems.md    /articles/public-design-systems          301
 /articles/src/2026-09-20-pre-launch-design-checklist.md /articles/pre-launch-design-checklist    301
 /articles/src/2026-09-19-open-source-icon-libraries.md /articles/open-source-icon-libraries     301
