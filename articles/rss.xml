@@ -6,6 +6,20 @@
     <description>设计工具评测、素材资源清单与灵感趋势的观察笔记。</description>
     <language>zh-CN</language>
     <item>
+      <title>设计师的 Chrome 插件清单：7 个官网都核实过的日常提效工具</title>
+      <link>https://dh.mozhuai.site/articles/designer-chrome-extensions</link>
+      <guid isPermaLink="true">https://dh.mozhuai.site/articles/designer-chrome-extensions</guid>
+      <pubDate>2026-10-05T08:00:00+08:00</pubDate>
+      <description>浏览器是设计师待得最久的工作环境之一。这篇整理了取色、字体识别、样式检查、页面编辑、截图与多屏预览共 7 个 Chrome 插件，官网逐一核实过，并附安装与权限注意事项。</description>
+    </item>
+    <item>
+      <title>中文网页排版清单：字体栈、行高、标点与中英混排怎么落地</title>
+      <link>https://dh.mozhuai.site/articles/chinese-web-typography</link>
+      <guid isPermaLink="true">https://dh.mozhuai.site/articles/chinese-web-typography</guid>
+      <pubDate>2026-10-04T08:00:00+08:00</pubDate>
+      <description>中文排版不是把英文规则翻译一遍。这篇把字体栈顺序、字重与行高、全角标点与避头尾、中英混排间距，以及中文字体怎么上线，拆成一份能照着改的清单。</description>
+    </item>
+    <item>
       <title>设计工具的开源替代：8 个项目的实际定位、授权与自托管</title>
       <link>https://dh.mozhuai.site/articles/open-source-design-tools</link>
       <guid isPermaLink="true">https://dh.mozhuai.site/articles/open-source-design-tools</guid>
