@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>界面动效落地清单：时长、缓动、可访问性与 6 个工具 - 设计师网址导航</title>
+    <meta name="description" content="动效做对了是体验，做过头是干扰。这篇把响应时长阈值、缓动曲线怎么选、降低动效偏好与 WCAG 要求讲清楚，再按交付形态拆开 6 个动效工具各自接哪一环，附性能与授权提醒。">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dh.mozhuai.site/articles/interface-motion-design-guide">
+    <link rel="shortcut icon" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dh.mozhuai.site/articles/interface-motion-design-guide">
+    <meta property="og:title" content="界面动效落地清单：时长、缓动、可访问性与 6 个工具">
+    <meta property="og:description" content="动效做对了是体验，做过头是干扰。这篇把响应时长阈值、缓动曲线怎么选、降低动效偏好与 WCAG 要求讲清楚，再按交付形态拆开 6 个动效工具各自接哪一环，附性能与授权提醒。">
+    <meta property="og:site_name" content="WebStack 设计师网址导航">
+    <meta property="article:published_time" content="2026-10-07">
+    <meta name="keywords" content="界面动效，微交互，动效时长，缓动曲线，prefers-reduced-motion，WCAG 2.3.3，Rive，Lottie，ProtoPie，Jitter">
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://dh.mozhuai.site/articles/interface-motion-design-guide#article",
+      "headline": "界面动效落地清单：时长、缓动、可访问性与 6 个工具",
+      "description": "动效做对了是体验，做过头是干扰。这篇把响应时长阈值、缓动曲线怎么选、降低动效偏好与 WCAG 要求讲清楚，再按交付形态拆开 6 个动效工具各自接哪一环，附性能与授权提醒。",
+      "datePublished": "2026-10-07",
+      "dateModified": "2026-10-07",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://dh.mozhuai.site/articles/interface-motion-design-guide"
+      },
+      "url": "https://dh.mozhuai.site/articles/interface-motion-design-guide",
+      "inLanguage": "zh-CN",
+      "author": {
+        "@type": "Organization",
+        "name": "WebStack 设计师网址导航",
+        "url": "https://dh.mozhuai.site/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "WebStack 设计师网址导航",
+        "url": "https://dh.mozhuai.site/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://dh.mozhuai.site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "设计文章",
+          "item": "https://dh.mozhuai.site/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "界面动效落地清单：时长、缓动、可访问性与 6 个工具",
+          "item": "https://dh.mozhuai.site/articles/interface-motion-design-guide"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <header class="art-head">
+        <div class="wrap">
+            <a class="brand" href="../">设计师网址导航</a>
+            <nav class="art-nav">
+                <a href="../">导航</a>
+                <a href="./" aria-current="page">设计文章</a>
+            </nav>
+        </div>
+    </header>
+    <main class="art-main">
+        <article>
+            <p class="art-meta"><time datetime="2026-10-07">2026 年 10 月 7 日</time></p>
+            <h1>界面动效落地清单：时长、缓动、可访问性与 6 个工具</h1>
+            <p class="art-lead">动效做对了是体验，做过头是干扰。这篇把响应时长阈值、缓动曲线怎么选、降低动效偏好与 WCAG 要求讲清楚，再按交付形态拆开 6 个动效工具各自接哪一环，附性能与授权提醒。</p>
+            <div class="art-body">
+    <p>界面动效最容易走两个极端：要么完全没有，页面切换生硬得像在翻文档；要么每个元素都要飞进来转一圈，用户等动画播完才能点下一步。真正难的不是"会不会做"，而是判断<strong>哪一处该动、动多久、怎么做才不挡路</strong>。</p>
+    <p>这篇不聊炫技，只把动效落地前的几条判断线、可复用的缓动思路，以及 6 个按交付形态分工的工具整理成一份清单。所有数值与规范均可回溯到官方文档，链接一并给出。</p>
+    <h2>一、先定三条线：瞬时、不打断、别让人等</h2>
+    <p>动效的时长不是审美问题，而是感知问题。NN/g 的经典文章《Response Times: The 3 Important Limits》给出了三条至今仍被广泛引用的阈值：</p>
+    <ul>
+    <li><strong>0.1 秒</strong>是"感觉系统瞬时响应"的上限。点一下按钮、选中一列数据，反馈必须在这个量级内完成，否则用户会觉得"我在操作"而不是"我在下令"。</li>
+    <li><strong>1 秒</strong>是"思路不断档"的上限。超过 0.1 秒但不足 1 秒的延迟，用户能感知到等待，但不需要额外的加载提示；超过 1 秒就该给出"系统正在处理"的信号。</li>
+    <li><strong>10 秒</strong>是"注意力还能留在当前任务"的上限。更久的操作需要进度指示，并且要提供可中断的入口。</li>
+    </ul>
+    <p>落到动效上，这三条线给了两个具体结论：<strong>反馈类动效要短</strong>（点击态、悬停态一般压在 100–200 毫秒级），<strong>过渡类动效不要拖</strong>。Apple 在 Human Interface Guidelines 的 Motion 章节里说得更直接：反馈动画要"简短而精确"，并且"让用户可以取消动效"——不要让用户为了点下一步先等动画播完，尤其是同一段动效他要重复看很多次的时候。</p>
+    <p>HIG 里还有两条常被忽略的约束：<strong>动效要有目的，不要为动而动</strong>；<strong>动效不能是传达关键信息的唯一方式</strong>，重要状态需要同时用文字、图标或触觉反馈兜底。另外，对高频发生的交互（比如每次点击都触发的元素），系统控件已自带细微反馈，自定义组件一般就不要再叠加动效了。</p>
+    <h2>二、缓动：linear 几乎总是错的</h2>
+    <p>确定时长之后，真正决定"手感"的是缓动曲线。物体的运动有加速与减速，匀速直线运动只适合极少数场景（比如持续旋转的加载指示器），界面里绝大多数位移、缩放、透明度变化都应该是 ease-out 或 ease-in-out。</p>
+    <ul>
+    <li><a href="https://easings.net/">easings.net</a>：把常见的缓动函数做成可视化速查表，每一条都附 cubic-bezier 数值，可以直接复制进 CSS 或设计工具。找"要不要急停""尾巴拖多长"的时候最省事。</li>
+    <li><a href="https://cubic-bezier.com/">cubic-bezier.com</a>：拖两个控制点就能画出曲线并实时预览，适合把一个模糊的"再弹一点"调成确定的数值。</li>
+    <li><a href="https://help.figma.com/hc/en-us/articles/360051748654-Create-smart-animate-animations">Figma 官方帮助中心的动效文档</a>：讲原型里的 easing 与 spring（弹簧）两种参数组织方式。需要"物理感"而不是"曲线感"时，弹簧参数比贝塞尔更好调。</li>
+    <li><a href="https://m3.material.io/styles/motion/overview">Material 3 的 Motion 规范</a>：Google 把缓动与时长做成了成对的设计 token（easing 与 duration 各成体系），适合团队要统一动效语言时作为参考基准。</li>
+    </ul>
+    <p>一个实用约定：<strong>同一个界面里缓动曲线不要超过两三种</strong>。动效的说服力来自一致性，五颜六色的曲线只会让整体显得毛躁。</p>
+    <h2>三、可访问性：动效必须能被关掉</h2>
+    <p>这一条经常被跳过，但它是硬要求，不是加分项。WCAG 2.1 的第 2.3.3 条 <strong>Animation from Interactions（Level AAA）</strong> 规定：由交互触发的动效必须可以被关闭，除非该动效对功能或信息而言是"必要的"。规范里明确点名了视差滚动这类非必要动效，并说明前庭功能障碍人群可能因为多余的运动产生眩晕、头痛甚至恶心。</p>
+    <p>实现方式就是 CSS 的 <code>prefers-reduced-motion</code> 媒体查询（<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion">MDN 文档</a>），WCAG 也把技术 C39 / SCR40 列为满足该条款的充分技术。需要区分的是：2.3.3 管的是"用户操作引发的动效"，而页面自己开始播放的动效（自动轮播、自动播放的装饰动画）由相邻的另一条要求——Pause, Stop, Hide——来管，两者可能同时适用。</p>
+    <p>落地的做法很简单：在 <code>prefers-reduced-motion: reduce</code> 生效时，把位移、缩放、视差、旋转降级为透明度变化或直接切换到终态，而不是"什么都不显示"。动效可以少，信息不能丢。</p>
+    <h2>四、按交付形态选工具：6 个工具各自接哪一环</h2>
+    <p>动效工具的分歧点其实不是"谁更强"，而是<strong>动效最终以什么形式交付</strong>——是留在设计稿里看效果、交给开发写成代码，还是作为可以独立运行的交互文件。按这个维度分，常见工具有 6 个：</p>
+    <ul>
+    <li><strong>Figma</strong>（<a href="https://www.figma.com/">figma.com</a>）：轻量过渡的首选。原型模式下的 Smart Animate 会自动补间同名或相似图层，缓动与弹簧都能设置。适合把"页面之间怎么切换""抽屉怎么推出来"表达清楚，成本极低。</li>
+    <li><strong>Adobe After Effects</strong>（<a href="https://www.adobe.com/products/aftereffects.html">adobe.com</a>）：重活都在这。复杂关键帧、表达式、逐帧动画、粒子效果，是动效设计师的主力工具；也是很多矢量动画素材的源头。学习曲线陡，但表达上限最高。</li>
+    <li><strong>Lottie + LottieFiles</strong>（<a href="https://lottiefiles.com/">lottiefiles.com</a>、<a href="https://airbnb.io/lottie">airbnb.io/lottie</a>）：Lottie 是 Airbnb 开源的矢量动画格式，把 AE 动画导出成 JSON，交给客户端或网页原生渲染，体积通常远小于 GIF 或视频。LottieFiles 提供动画库（站内标称 80 万+ 免费与付费动画）、在线编辑器 Lottie Creator，以及 Figma、After Effects 等插件，另有更压缩的 dotLottie 格式。<strong>它是"往下游交付"这条链路里最成熟的一段。</strong></li>
+    <li><strong>Rive</strong>（<a href="https://rive.app/">rive.app</a>）：走的是另一条路——在编辑器里同时做设计、动画和逻辑，用状态机（State Machine）描述"悬停、按下、加载中"这些状态之间的转换，导出的文件由开源运行时在各平台原生播放。适合需要<strong>真正可交互</strong>、又要性能受控的动效（图标动效、按钮状态、游戏化 UI）。它与 Lottie 的差别在于交互逻辑是内置的，而不是靠开发在代码里拼。</li>
+    <li><strong>ProtoPie</strong>（<a href="https://www.protopie.io/">protopie.io</a>）：高保真原型工具。除了常规交互，它支持多设备与跨设备联动、设备传感器、变量与公式，做"手机摇一摇""手机与车机联动"这类演示时优势明显，适合用户测试前把体验做真。</li>
+    <li><strong>Jitter</strong>（<a href="https://jitter.video/">jitter.video</a>）：把自己定位为"网页上快速简单的动效设计工具"，主打在浏览器里几分钟出成品。做提案里的小段界面动效、社媒素材时启动成本最低。</li>
+    </ul>
+    <p>如果动效最终要写进代码，还有一层前端方案：<strong>GSAP</strong>（<a href="https://gsap.com/">gsap.com</a>）、<strong>anime.js</strong>（<a href="https://animejs.com/">animejs.com</a>）、<strong>Motion</strong>（<a href="https://motion.dev/">motion.dev</a>），以及浏览器原生的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">Web Animations API</a>。它们更适合"动效需要跟随数据或状态实时变化"的场景，而不是把一段固定动画搬上线。</p>
+    <p>本站的<a href="https://dh.mozhuai.site/#%E4%BA%A4%E4%BA%92%E5%8A%A8%E6%95%88">「交互动效」分类</a>里收录了 After Effects、Flinto、Framer、ProtoPie 等站点的官方入口，可以先从那几个开始试；想对照规范再动手，<a href="https://dh.mozhuai.site/#%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83">「设计规范」分类</a>下的 Material Design 与 Human Interface Guidelines 是最直接的两份官方依据。</p>
+    <h2>五、交付前的三个提醒</h2>
+    <p>第一，<strong>授权以官方说明为准</strong>。动画库里的素材常分免费与付费两档，免费档有时的使用范围也有限制，改广告语、去掉水印、转售素材这类操作多半不允许；工具本身的授权同样如此（例如 GSAP 的商用范围有过调整）。下载或接入前花一分钟看官方许可页，比事后返工便宜得多，这里不替任何一方做解释。</p>
+    <p>第二，<strong>盯住体积与性能</strong>。动效是很容易拖慢首屏的东西：优先用矢量与代码实现，Lottie 记得开压缩格式，大动效做懒加载，避免同时播放多个动画。上线前用性能面板确认没有掉帧，比凭感觉判断靠谱。</p>
+    <p>第三，<strong>准备好降级形态</strong>。<code>prefers-reduced-motion</code> 只是其中一种降级；低性能设备、弱网环境、动效文件加载失败时，界面都应该能回到"没有动效也完全可用"的状态。这条线守住了，动效才是加分项而不是风险项。</p>
+            </div>
+            <p class="art-tags">
+            <span class="art-tag">交互动效</span>
+            <span class="art-tag">设计规范</span>
+            <span class="art-tag">工具清单</span>
+            </p>
+        </article>
+        <p class="art-back"><a href="./">&larr; 返回文章列表</a> &middot; <a href="../">去逛逛导航 &rarr;</a></p>
+    </main>
+    <footer class="art-foot">
+        <div class="wrap">
+            <p>&copy; 2017-2026 <a href="../about"><strong>WebStack</strong></a> &middot; 设计资源观察笔记</p>
+        </div>
+    </footer>
+</body>
+</html>

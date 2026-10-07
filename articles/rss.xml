@@ -6,6 +6,13 @@
     <description>设计工具评测、素材资源清单与灵感趋势的观察笔记。</description>
     <language>zh-CN</language>
     <item>
+      <title>界面动效落地清单：时长、缓动、可访问性与 6 个工具</title>
+      <link>https://dh.mozhuai.site/articles/interface-motion-design-guide</link>
+      <guid isPermaLink="true">https://dh.mozhuai.site/articles/interface-motion-design-guide</guid>
+      <pubDate>2026-10-07T08:00:00+08:00</pubDate>
+      <description>动效做对了是体验，做过头是干扰。这篇把响应时长阈值、缓动曲线怎么选、降低动效偏好与 WCAG 要求讲清楚，再按交付形态拆开 6 个动效工具各自接哪一环，附性能与授权提醒。</description>
+    </item>
+    <item>
       <title>免费样机去哪找？6 个免费 Mockup 资源站的定位与用法</title>
       <link>https://dh.mozhuai.site/articles/free-mockup-resources</link>
       <guid isPermaLink="true">https://dh.mozhuai.site/articles/free-mockup-resources</guid>
