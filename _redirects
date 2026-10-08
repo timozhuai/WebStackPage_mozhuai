@@ -6,6 +6,7 @@
 /cn/                                                /                                    301
 /cn/*                                               /:splat                              301
 
+/articles/src/2026-10-08-form-design-checklist.md    /articles/form-design-checklist          301
 /articles/src/2026-10-07-interface-motion-design-guide.md /articles/interface-motion-design-guide  301
 /articles/src/2026-10-06-free-mockup-resources.md    /articles/free-mockup-resources          301
 /articles/src/2026-10-05-designer-chrome-extensions.md /articles/designer-chrome-extensions     301

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单设计清单：标签、报错、触点与自动填充怎么落地 - 设计师网址导航</title>
+    <meta name="description" content="表单是最容易被跳过的体验短板。这篇把标签与占位符、报错时机与位置、触控目标尺寸、自动填充与重复录入四条线的官方依据和具体数值整理成一份可直接照做的清单。">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dh.mozhuai.site/articles/form-design-checklist">
+    <link rel="shortcut icon" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dh.mozhuai.site/articles/form-design-checklist">
+    <meta property="og:title" content="表单设计清单：标签、报错、触点与自动填充怎么落地">
+    <meta property="og:description" content="表单是最容易被跳过的体验短板。这篇把标签与占位符、报错时机与位置、触控目标尺寸、自动填充与重复录入四条线的官方依据和具体数值整理成一份可直接照做的清单。">
+    <meta property="og:site_name" content="WebStack 设计师网址导航">
+    <meta property="article:published_time" content="2026-10-08">
+    <meta name="keywords" content="表单设计，输入框，错误提示，触控目标尺寸，WCAG，自动填充，autocomplete，占位符，密码输入">
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://dh.mozhuai.site/articles/form-design-checklist#article",
+      "headline": "表单设计清单：标签、报错、触点与自动填充怎么落地",
+      "description": "表单是最容易被跳过的体验短板。这篇把标签与占位符、报错时机与位置、触控目标尺寸、自动填充与重复录入四条线的官方依据和具体数值整理成一份可直接照做的清单。",
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-08",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://dh.mozhuai.site/articles/form-design-checklist"
+      },
+      "url": "https://dh.mozhuai.site/articles/form-design-checklist",
+      "inLanguage": "zh-CN",
+      "author": {
+        "@type": "Organization",
+        "name": "WebStack 设计师网址导航",
+        "url": "https://dh.mozhuai.site/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "WebStack 设计师网址导航",
+        "url": "https://dh.mozhuai.site/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://dh.mozhuai.site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "设计文章",
+          "item": "https://dh.mozhuai.site/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "表单设计清单：标签、报错、触点与自动填充怎么落地",
+          "item": "https://dh.mozhuai.site/articles/form-design-checklist"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <header class="art-head">
+        <div class="wrap">
+            <a class="brand" href="../">设计师网址导航</a>
+            <nav class="art-nav">
+                <a href="../">导航</a>
+                <a href="./" aria-current="page">设计文章</a>
+            </nav>
+        </div>
+    </header>
+    <main class="art-main">
+        <article>
+            <p class="art-meta"><time datetime="2026-10-08">2026 年 10 月 8 日</time></p>
+            <h1>表单设计清单：标签、报错、触点与自动填充怎么落地</h1>
+            <p class="art-lead">表单是最容易被跳过的体验短板。这篇把标签与占位符、报错时机与位置、触控目标尺寸、自动填充与重复录入四条线的官方依据和具体数值整理成一份可直接照做的清单。</p>
+            <div class="art-body">
+    <p>导航站、落地页、后台系统，几乎每个项目都要做表单。它也是最容易"看起来没问题、用起来处处别扭"的组件：标签一消失用户就忘了要填什么，报错只写"输入有误"，手机上怎么点都点不中那个小关闭按钮。这篇把表单里最常被忽略的四条线拆开，每条都给官方依据和具体数值，可以直接当成评审清单用。</p>
+    <h2>一、标签与提示：可见的标签比字段里的占位符可靠</h2>
+    <p>WCAG 的第 3.3.2 条 <strong>Labels or Instructions（Level A）</strong> 要求输入项必须有能说明用途的标签或说明文字，这是表单的底线要求，不是加分项。</p>
+    <p>用占位符（placeholder）代替标签是常见做法，但 NN/g 在《Placeholders in Form Fields Are Harmful》里列了 7 条它带来的问题，几条最关键的：占位符一消失，用户就得靠短时记忆回想这个字段要填什么；填完后无法回看核对；出错时不知道该改哪一项；用 Tab 键快速跳转的人根本来不及读；有文字的输入框反而不容易被眼睛扫到，还可能被误认为已经填好了默认值。再加上占位符默认的浅灰对比度普遍偏低、部分屏幕阅读器不会朗读它——用它承载"必填""格式要求"这类关键信息风险很大。</p>
+    <p>稳妥的做法是：<strong>把标签和格式要求放在字段外并常驻</strong>，占位符只用来放示例（比如"例如：2026-10-08"）。苹果和 Google 都推过"浮动标签"（floating label），标签在聚焦时上移、始终可见，确实省了手机上的竖向空间，NN/g 也承认它比纯占位符好；但"有内容的字段不易被注意""会被当成默认值"这两个问题依然存在。有空间时，字段外标签仍是最优解。</p>
+    <h2>二、报错：别太早、别太远、别只说"出错了"</h2>
+    <p>NN/g 的《Error-Message Guidelines》把错误提示拆成可见性、沟通、效率三组要求，落到表单上就是几条很具体的判断：</p>
+    <ul>
+    <li><strong>别过早报错。</strong> 用户只是把焦点移出空字段、或者还在尝试探索，就立刻弹红字，是典型的"敌对模式"。更合理的做法是：对容易出错的交互（比如设密码、填卡号）给实时的格式提示，其余的等提交时统一校验。</li>
+    <li><strong>报错要靠近出错的地方。</strong> 提示与出错字段挨着放，用户才能立刻把"哪里错"和"要改什么"对应起来；同时不要只用颜色表示错误，加图标、加边框、把文案写清楚，照顾色觉障碍用户。</li>
+    <li><strong>说人话，给办法。</strong> 泛泛的"发生了一个错误"没有信息量，少用错误码，也别用 invalid、illegal、incorrect 这类隐含指责的词。要说明具体哪里不对、怎么改，并<strong>保留用户已经填过的内容</strong>，别让一次校验清空整张表单。</li>
+    <li><strong>能猜就给选项。</strong> 比如城市与邮编对不上，除了报错，可以直接给出与邮编匹配的城市让用户点选。</li>
+    </ul>
+    <p>组件层面，GOV.UK Design System 的 Error summary 组件是一份现成的参考：只要有校验错误，就在页面 <code>main</code> 顶部（面包屑或返回链接之下、<code>h1</code> 之上）显示错误摘要，哪怕只有一个错误；摘要标题固定用 "There is a problem"，把键盘焦点自动移过去，每条错误链接到对应字段，摘要里的措辞与字段旁的错误信息<strong>完全一致</strong>，页面标题前再加 "Error: " 方便屏幕阅读器最先读到。</p>
+    <p>对应的 WCAG 条款是 3.3.1 Error Identification（Level A）、3.3.3 Error Suggestion（Level AA）和 3.3.4 Error Prevention（Legal, Financial, Data）（Level AA）。这三条在评审时最容易被"功能能用"糊弄过去，但对不熟悉业务的用户来说，报错写得好不好直接决定他会不会放弃。</p>
+    <h2>三、触点尺寸：24 是底线，44 才舒服</h2>
+    <p>WCAG 2.2 新增的 <strong>2.5.8 Target Size (Minimum)</strong> 是 Level AA，要求指针设备的目标至少 <strong>24×24 CSS 像素</strong>；更早的 WCAG 2.1 里 <strong>2.5.5 Target Size</strong> 是 Level AAA，门槛是 <strong>44×44 CSS 像素</strong>。两条都写了例外情形：目标之间留出足够间距、同页面存在等价的大目标、目标本身在句子或文本块内部、尺寸由浏览器决定、以及该尺寸对信息传达是必要的。</p>
+    <p>官方文档同时提醒：24 只是"最低"，实际应尽量做大，尤其是控件使用频繁、操作结果难以撤销、位置靠近屏幕边缘、或者属于连续任务中的一环时。</p>
+    <p>Apple 的 Human Interface Guidelines 给的是另一套数字：iOS/iPadOS 的<strong>默认控件尺寸是 44×44 pt，最低 28×28 pt</strong>（macOS 是 28×28 / 20×20 pt，watchOS 是 44×44 / 28×28 pt）。它还补了一条常被忽略的：控件之间的间距和尺寸同样重要——有外框的元素周围留约 12 pt，没有外框的留约 24 pt，能明显降低误触。</p>
+    <p>落到实际项目里，最容易不达标的往往是这几处：抽屉和弹窗右上角的小关闭按钮、复选框与单选框本体、错误提示旁的问号图标、以及只有图标没有文字的图标按钮。这些地方把可点击区域（padding 或透明热区）撑够，比把图标画大更划算。</p>
+    <h2>四、少让用户打字：自动填充与不要重复录入</h2>
+    <p>WCAG 2.1 的 <strong>1.3.5 Identify Input Purpose（Level AA）</strong> 要求收集用户个人信息的字段带上合适的 <code>autocomplete</code> 值。这不是可选项：常见令牌在 WHATWG HTML 规范里都有定义，包括 <code>name</code>、<code>given-name</code>、<code>email</code>、<code>tel</code>、<code>postal-code</code>、<code>cc-number</code>、<code>current-password</code>、<code>new-password</code>、<code>one-time-code</code>。写全之后，浏览器和密码管理器才能正确填，用户少打一屏字，出错率也跟着降。</p>
+    <p>键盘类型同理：验证码、卡号这类短数字串，用 <code>inputmode="numeric"</code> 唤起数字键盘通常比 <code>type="number"</code> 更稳，后者自带步进、滚轮改值等行为，容易在非数值语义的字段上帮倒忙。</p>
+    <p>WCAG 2.2 又加了两条与"少打字"直接相关的要求：</p>
+    <ul>
+    <li><strong>3.3.7 Redundant Entry（Level A）</strong>——同一次流程中已提交过的信息，不应要求用户再输一遍，要么自动带出，要么让他可以直接选择；例外是重填对该流程必要、涉及安全、或原信息已失效。结算时"收货地址同账单地址"的勾选、返回上一步时保留已填内容，都属于这条。</li>
+    <li><strong>3.3.8 Accessible Authentication (Minimum)（Level AA）</strong>——不能要求用户完成"认知功能测试"（记住密码、解谜题），除非存在可绕过的替代方式。具体落到产品上就是：允许粘贴密码、不要禁用密码管理器。</li>
+    </ul>
+    <p>GOV.UK 的 Passwords 模式还给了几条很实用的约束建议：最小长度至少 8 位、<strong>不要设最大长度</strong>、不要强制用户定期改密码、不要用"密码找回问题"和"密码提示"，登录失败时不要透露是用户名错还是密码错（只提示"账号或密码不正确"），并给出 5–10 次尝试机会再触发锁定。</p>
+    <h2>写在最后</h2>
+    <p>这四条线里，标签和触动尺寸是"做对了没人夸、做错了天天有人骂"的那类基础项，报错文案和自动填充则最容易被当成开发细节被跳过。下次评审界面时，不妨按这四组问题过一遍：字段离开焦点后用户还知道要填什么吗？报错说了具体怎么改吗？手机上闭着眼能点中吗？同一份信息有没有被问第二遍？</p>
+    <p>想继续深挖规范本身，本站的<a href="https://dh.mozhuai.site/#%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83">「设计规范」分类</a>里收录了 Material Design、Human Interface Guidelines 等官方入口，<a href="https://dh.mozhuai.site/#%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1">「交互设计」分类</a>下则更适合找组件库与交互参考资料。动手前也可以顺手过一遍 <a href="./pre-launch-design-checklist">上线前的设计自检清单</a>，避免这类细节留到最后才发现。</p>
+    <p>最后提醒一句：本文引用的 WCAG 条款、Apple HIG 数值与组件规范细节，均以官方文档为准；规范会随版本更新，落地前建议回到原文核对当前版本，涉及第三方组件库的授权范围也请以官方说明为准。</p>
+            </div>
+            <p class="art-tags">
+            <span class="art-tag">设计规范</span>
+            <span class="art-tag">交互设计</span>
+            <span class="art-tag">体验细节</span>
+            </p>
+        </article>
+        <p class="art-back"><a href="./">&larr; 返回文章列表</a> &middot; <a href="../">去逛逛导航 &rarr;</a></p>
+    </main>
+    <footer class="art-foot">
+        <div class="wrap">
+            <p>&copy; 2017-2026 <a href="../about"><strong>WebStack</strong></a> &middot; 设计资源观察笔记</p>
+        </div>
+    </footer>
+</body>
+</html>
